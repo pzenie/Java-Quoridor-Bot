@@ -111,17 +111,26 @@ public class Pz_Hw implements PlayerModule {
             Coordinate c9 = new Coordinate(c.getRow()-1, c.getCol());
             Coordinate c8 = new Coordinate(c1.getRow()-1, c1.getCol());
             graph.get(c).remove(c9);
-            graph.get(c9).remove(c);
-            graph.get(c8).remove(c1);
+            if(graph.containsKey(c9)) {
+                graph.get(c9).remove(c);
+            }
+            if(graph.containsKey(c8)) {
+                graph.get(c8).remove(c1);
+            }
             graph.get(c1).remove(c8);
         }
         else if (colc == true) {
             Coordinate c9 = new Coordinate(c.getRow(), c.getCol() - 1);
             Coordinate c8 = new Coordinate(c1.getRow(), c1.getCol() - 1);
             graph.get(c).remove(c9);
-            graph.get(c9).remove(c);
-            graph.get(c8).remove(c1);
+            if(graph.containsKey(c9)) {
+                graph.get(c9).remove(c);
+            }
+            if(graph.containsKey(c8)) {
+                graph.get(c8).remove(c1);
+            }
             graph.get(c1).remove(c8);
+
         }
     }
     @Override
@@ -180,20 +189,25 @@ public class Pz_Hw implements PlayerModule {
             an ordered list of Coordinate objects representing a path that must go from the start coordinate to the end coordinate. If no path exists, return an empty list.
          */
 
-        List<Coordinate> dispenser = new LinkedList<Coordinate>();
+        List<Coordinate> dispenser = new LinkedList<>();
         dispenser.add(start);
 
-        Map<Coordinate, Coordinate> predecessors = new HashMap<Coordinate, Coordinate>();
+        Map<Coordinate, Coordinate> predecessors = new HashMap<>();
 
         while (!dispenser.isEmpty()){
+            //System.out.println(dispenser);
             Coordinate current = dispenser.remove(0);
+           // System.out.println(dispenser);
             if(current == end){
                 break;
             }
+            //System.out.println(current);
             for(Coordinate nbr : getNeighbors(current)){
                 if(!predecessors.containsKey(nbr)){
                     predecessors.put(nbr, current);
-                    dispenser.add(nbr);
+                    if(nbr.getCol() >=0 && nbr.getRow()>=0){
+                        dispenser.add(nbr);
+                    }
                 }
             }
         }
@@ -270,22 +284,16 @@ public class Pz_Hw implements PlayerModule {
          * @return set of wall moves
          */
         Set<PlayerMove> walls = new HashSet<>();
-        for(int i=0; i<8; i++){
-            for(int j=0; j<8; j+=2){
-                for(int k=0; k<8; k++){
-                    for(int l=0; l<8; l+=2){
-                        walls.add(new PlayerMove(0, false, new Coordinate(i,j), new Coordinate(k,l)));
-                    }
-                }
+        for(int i=1; i<=6; i++){
+            for(int k=0; k+2<=6; k++){
+                PlayerMove player = new PlayerMove(0, false, new Coordinate(i,k), new Coordinate(i,k+2));
+                walls.add(player);
             }
         }
-        for(int i=0; i<8; i+=2){
-            for(int j=0; j<8; j++){
-                for(int k=0; k<8; k+=2){
-                    for(int l=0; l<8; l++){
-                        walls.add(new PlayerMove(0, false, new Coordinate(i,j), new Coordinate(k,l)));
-                    }
-                }
+        for(int i=0; i+2<=6; i++){
+            for(int k=0; k+2<=6; k++){
+                PlayerMove player = new PlayerMove(0, false, new Coordinate(i,k), new Coordinate(i+2,k));
+                walls.add(player);
             }
         }
         for(PlayerMove wall: walls){
@@ -356,7 +364,7 @@ public class Pz_Hw implements PlayerModule {
             }
         }
 
-        if (valid){
+       /* if (valid){
             boolean start = false;
             boolean middle = false;
             boolean end = false;
@@ -433,7 +441,7 @@ public class Pz_Hw implements PlayerModule {
                     wallMap.remove(wall.getEnd());
                 }
             }
-        }
+        }*/
         if (valid){
             boolean start = false;
             boolean middle = false;
@@ -511,16 +519,24 @@ public class Pz_Hw implements PlayerModule {
                 Coordinate c9 = new Coordinate(c.getRow()-1, c.getCol());
                 Coordinate c8 = new Coordinate(c1.getRow()-1, c1.getCol());
                 graph.get(c).add(c9);
-                graph.get(c9).add(c);
-                graph.get(c8).add(c1);
+                if(graph.containsKey(c9)) {
+                    graph.get(c9).add(c);
+                }
+                if(graph.containsKey(c8)) {
+                    graph.get(c8).add(c1);
+                }
                 graph.get(c1).add(c8);
             }
             else if (verticle == true) {
                 Coordinate c9 = new Coordinate(c.getRow(), c.getCol() - 1);
                 Coordinate c8 = new Coordinate(c1.getRow(), c1.getCol() - 1);
                 graph.get(c).add(c9);
-                graph.get(c9).add(c);
-                graph.get(c8).add(c1);
+                if(graph.containsKey(c9)) {
+                    graph.get(c9).add(c);
+                }
+                if(graph.containsKey(c8)) {
+                    graph.get(c8).add(c1);
+                }
                 graph.get(c1).add(c8);
             }
         }
