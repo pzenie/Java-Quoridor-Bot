@@ -1,0 +1,12 @@
+*.iml
+.idea/
+*.ipr
+*.iws
+*.txt
+
+# IntelliJ
+/out/
+
+# Quoridor
+/Logs/
+/lib/
