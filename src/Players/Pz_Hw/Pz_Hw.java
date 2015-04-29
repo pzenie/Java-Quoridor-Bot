@@ -19,6 +19,7 @@ public class Pz_Hw implements PlayerModule {
     private int walls;
     private Map<Integer, Integer> idWalls;
     private Map<Coordinate, Boolean> wallMap = new HashMap<>();
+    private Map<Coordinate,Coordinate> locatewalls = new HashMap<>();
 
     @Override
     public void init(Logger logger, int i, int walls, Map<Integer, Coordinate> map) {
@@ -39,8 +40,8 @@ public class Pz_Hw implements PlayerModule {
             idWalls.put(b,this.walls);
         }
         this.graph = new HashMap<Coordinate, HashSet<Coordinate>>();
-        for(int l = 0; l <= 10; l++){
-            for(int k = 0; k <= 10; k++){
+        for(int l = 0; l <= 8; l++){
+            for(int k = 0; k <= 8; k++){
                 HashSet<Coordinate> neighbors = new HashSet<Coordinate>();
                 if(l>0){
                     neighbors.add(new Coordinate(l-1, k));
@@ -74,6 +75,7 @@ public class Pz_Hw implements PlayerModule {
             map.put(player, newcord);
         }
         else if (!playerMove.isMove()){
+            locatewalls.put(playerMove.getStart(),playerMove.getEnd());
             int cwalls = idWalls.get(player);
             idWalls.put(player, cwalls-1);
             placeWalls(playerMove);
@@ -92,17 +94,28 @@ public class Pz_Hw implements PlayerModule {
         if (o != playerMove.getStartCol() ){
             o--;
             rowc = true;
-            wallMap.put(playerMove.getStart(), true);
-            wallMap.put(new Coordinate(playerMove.getStartRow(), playerMove.getStartCol()+1),false);
-            wallMap.put(playerMove.getEnd(), true);
-
+            if(!wallMap.containsKey(playerMove.getStart())){
+                wallMap.put(playerMove.getStart(), true);
+            }
+            if(!wallMap.containsKey((new Coordinate(playerMove.getStartRow(), playerMove.getStartCol() + 1)))) {
+                wallMap.put(new Coordinate(playerMove.getStartRow(), playerMove.getStartCol() + 1), false);
+            }
+            if(!wallMap.containsKey(playerMove.getEnd())) {
+                wallMap.put(playerMove.getEnd(), true);
+            }
         }
         else if (u != playerMove.getStartRow()){
             u--;
             colc = true;
-            wallMap.put(playerMove.getStart(), true);
-            wallMap.put(new Coordinate(playerMove.getStartRow()+1, playerMove.getStartCol()),false);
-            wallMap.put(playerMove.getEnd(), true);
+            if(!wallMap.containsKey(playerMove.getStart())) {
+                wallMap.put(playerMove.getStart(), true);
+            }
+            if(!wallMap.containsKey((new Coordinate(playerMove.getStartRow()+1, playerMove.getStartCol())))) {
+                wallMap.put(new Coordinate(playerMove.getStartRow() + 1, playerMove.getStartCol()), false);
+            }
+            if(!wallMap.containsKey(playerMove.getEnd())) {
+                wallMap.put(playerMove.getEnd(), true);
+            }
         }
         Coordinate c = new Coordinate(playerMove.getStartRow(), playerMove.getStartCol());
         Coordinate c1 = new Coordinate(u, o);
@@ -274,6 +287,8 @@ public class Pz_Hw implements PlayerModule {
             a set of all possible, valid moves.
          */
         Set<PlayerMove> allWallMoves = getAllWallMoves();
+        Set<PlayerMove> allPieceMoves = allPieceMoves();
+        allWallMoves.addAll(allPieceMoves);
         return allWallMoves;
     }
 
@@ -284,24 +299,28 @@ public class Pz_Hw implements PlayerModule {
          * @return set of wall moves
          */
         Set<PlayerMove> walls = new HashSet<>();
-        for(int i=1; i<=6; i++){
-            for(int k=0; k+2<=6; k++){
-                PlayerMove player = new PlayerMove(0, false, new Coordinate(i,k), new Coordinate(i,k+2));
-                walls.add(player);
+        Set<PlayerMove> wallsFinal = new HashSet<>();
+        if (getWallsRemaining(1) >0) {
+            for (int i = 1; i <= 8; i++) {
+                for (int k = 0; k + 2 <= 9; k++) {
+                    PlayerMove player = new PlayerMove(1, false, new Coordinate(i, k), new Coordinate(i, k + 2));
+                    walls.add(player);
+                }
+            }
+            for (int i = 0; i + 2 <= 9; i++) {
+                for (int k = 1; k <= 8; k++) {
+                    PlayerMove player = new PlayerMove(1, false, new Coordinate(i, k), new Coordinate(i + 2, k));
+                    walls.add(player);
+                }
+            }
+
+            for (PlayerMove wall : walls) {
+                if (isValidWall(wall)) {
+                    wallsFinal.add(wall);
+                }
             }
         }
-        for(int i=0; i+2<=6; i++){
-            for(int k=0; k+2<=6; k++){
-                PlayerMove player = new PlayerMove(0, false, new Coordinate(i,k), new Coordinate(i+2,k));
-                walls.add(player);
-            }
-        }
-        for(PlayerMove wall: walls){
-            if(!isValidWall(wall)){
-                walls.remove(wall);
-            }
-        }
-        return walls;
+        return wallsFinal;
     }
 
     public boolean isValidWall(PlayerMove wall){
@@ -326,26 +345,46 @@ public class Pz_Hw implements PlayerModule {
 
         if(wallMap.containsKey(wall.getStart())){
             if (horizontal){
-                if(wallMap.containsKey(new Coordinate(wall.getStartRow(), wall.getStartCol()+1))) {
-                    valid = false;
+                if(wallMap.containsKey(new Coordinate(wall.getStartRow(), wall.getStartCol()+1)) && !wallMap.get(wall.getStart())){
+                    valid =false;
+                }
+                else {
+                    if (wallMap.containsKey(new Coordinate(wall.getStartRow(), wall.getStartCol() + 1)) && !wallMap.get(new Coordinate(wall.getStartRow(), wall.getStartCol() + 1))) {
+                        valid = false;
+                    }
                 }
             }
             else if (verticle){
-                if(wallMap.containsKey(new Coordinate(wall.getStartRow()+1, wall.getStartCol()))){
+                if(wallMap.containsKey(new Coordinate(wall.getStartRow()+1, wall.getStartCol())) && !wallMap.get(wall.getStart())){
                     valid = false;
+                }
+                else {
+                    if (wallMap.containsKey(new Coordinate(wall.getStartRow() + 1, wall.getStartCol())) && !wallMap.get(new Coordinate(wall.getStartRow() + 1, wall.getStartCol()))) {
+                        valid = false;
+                    }
                 }
             }
         }
 
         if(wallMap.containsKey(wall.getEnd())){
             if (horizontal){
-                if(wallMap.containsKey(new Coordinate(wall.getEndRow(), wall.getEndCol()-1))) {
-                    valid = false;
+                if(wallMap.containsKey(new Coordinate(wall.getEndRow(), wall.getEndCol()-1))&& !wallMap.get(wall.getEnd())) {
+                valid = false;
+                }
+                else {
+                    if (wallMap.containsKey(new Coordinate(wall.getEndRow(), wall.getEndCol() - 1)) && !wallMap.get(new Coordinate(wall.getEndRow(), wall.getEndCol() - 1))) {
+                        valid = false;
+                    }
                 }
             }
             else if (verticle){
-                if(wallMap.containsKey(new Coordinate(wall.getEndRow()-1, wall.getEndCol()))){
+                if(wallMap.containsKey(new Coordinate(wall.getEndRow()-1, wall.getEndCol()))&& !wallMap.get(wall.getEnd())){
                     valid = false;
+                }
+                else {
+                    if (wallMap.containsKey(new Coordinate(wall.getEndRow() - 1, wall.getEndCol())) && !wallMap.get(new Coordinate(wall.getEndRow() - 1, wall.getEndCol()))) {
+                        valid = false;
+                    }
                 }
             }
         }
@@ -364,84 +403,6 @@ public class Pz_Hw implements PlayerModule {
             }
         }
 
-       /* if (valid){
-            boolean start = false;
-            boolean middle = false;
-            boolean end = false;
-            if (horizontal) {
-                if(wallMap.containsKey(wall.getStart())){
-                    start = true;
-                }
-                else {
-                    wallMap.put(wall.getStart(), true);
-                }
-                if(wallMap.containsKey(new Coordinate(wall.getStartRow(), wall.getStartCol() + 1))){
-                    middle = true;
-                }
-                else {
-                    wallMap.put(new Coordinate(wall.getStartRow(), wall.getStartCol() + 1), false);
-                }
-                if(wallMap.containsKey(wall.getEnd())){
-                    end = true;
-                }
-                else {
-                    wallMap.put(wall.getEnd(), true);
-                }
-
-            } else if (verticle) {
-                if(wallMap.containsKey(wall.getStart())){
-                    start = true;
-                }
-                else {
-                    wallMap.put(wall.getStart(), true);
-                }
-                if(wallMap.containsKey(new Coordinate(wall.getStartRow()+1, wall.getStartCol()))){
-                    middle = true;
-                }
-                else {
-                    wallMap.put(new Coordinate(wall.getStartRow()+1, wall.getStartCol()), false);
-                }
-                if(wallMap.containsKey(wall.getEnd())){
-                    end = true;
-                }
-                else {
-                    wallMap.put(wall.getEnd(), true);
-                }
-            }
-
-            for (int i = 1; i <= map.size(); i++) {
-                Coordinate c = map.get(i);
-                if(wallMap.containsKey(new Coordinate(c.getRow()+1,c.getCol()+1)) &&
-                        wallMap.containsKey(new Coordinate(c.getRow()+1,c.getCol())) &&
-                        wallMap.containsKey(new Coordinate(c.getRow(),c.getCol()+1)) &&
-                        wallMap.containsKey(new Coordinate(c.getRow(),c.getCol()))){
-                    valid = false;
-                }
-            }
-
-            if (horizontal) {
-                if(!start) {
-                    wallMap.remove(wall.getStart());
-                }
-                if(!middle) {
-                    wallMap.remove(new Coordinate(wall.getStartRow(), wall.getStartCol() + 1));
-                }
-                if(!end) {
-                    wallMap.remove(wall.getEnd());
-                }
-            }
-            else if (verticle) {
-                if(!start) {
-                    wallMap.remove(wall.getStart());
-                }
-                if(!middle) {
-                    wallMap.remove(new Coordinate(wall.getStartRow()+1, wall.getStartCol()));
-                }
-                if(!end) {
-                    wallMap.remove(wall.getEnd());
-                }
-            }
-        }*/
         if (valid){
             boolean start = false;
             boolean middle = false;
@@ -525,7 +486,9 @@ public class Pz_Hw implements PlayerModule {
                 if(graph.containsKey(c8)) {
                     graph.get(c8).add(c1);
                 }
-                graph.get(c1).add(c8);
+                if (graph.containsKey(c1)) {
+                    graph.get(c1).add(c8);
+                }
             }
             else if (verticle == true) {
                 Coordinate c9 = new Coordinate(c.getRow(), c.getCol() - 1);
@@ -537,10 +500,243 @@ public class Pz_Hw implements PlayerModule {
                 if(graph.containsKey(c8)) {
                     graph.get(c8).add(c1);
                 }
-                graph.get(c1).add(c8);
+                if (graph.containsKey(c1)) {
+                    graph.get(c1).add(c8);
+                }
             }
         }
         return valid;
     }
 
+    /** Starts off by getting where i am. create the four adjacent squares. first for loop check for walls, if there is
+     * remove the possible move. second for loop, loops through the current location of every player, if there is a
+     * player remove that coordinate from my hashmap, at the same time, i check for walls of the new coordinate
+     * if there is walls, i check if i can move a diagonal.if there isn't a wall that means i can jump.
+     * I create playermove for everything in my hashmap and put in hashset, return it.
+     * **/
+    public Set<PlayerMove> allPieceMoves(){
+        ArrayList<Coordinate> outofbound = new ArrayList<Coordinate>();
+        HashMap<Coordinate,Integer> map = new HashMap<>();
+        Map<Integer,Coordinate> locations = getPlayerLocations();
+        HashSet<PlayerMove> allmove = new HashSet<PlayerMove>();
+        int row = getPlayerLocation(playerID).getRow();
+        int col = getPlayerLocation(playerID).getCol();
+        Coordinate left = new Coordinate(row,col-1);
+        Coordinate right = new Coordinate(row,col+1);
+        Coordinate up = new Coordinate(row-1,col);
+        Coordinate down = new Coordinate(row+1,col);
+        map.put(left,1);
+        map.put(right,1);
+        map.put(up,1);
+        map.put(down,1);
+
+        for (Coordinate lo: locatewalls.keySet()){
+            if (col == lo.getCol()) {
+                if (row - 1 == lo.getRow() && row + 1 == locatewalls.get(lo).getRow()) {
+                    map.remove(left);
+                }
+                if (row + 1 == lo.getRow() && row - 1 == locatewalls.get(lo).getRow()) {
+                    map.remove(left);
+                }
+                if (row == lo.getRow() && row + 2 == locatewalls.get(lo).getRow()) {
+                    map.remove(left);
+                }
+                if (row + 2 == lo.getRow() && row == locatewalls.get(lo).getRow()) {
+                    map.remove(left);
+                }
+            }
+            if (col+1 == lo.getCol()) {
+                if (row-1 == lo.getRow() && row + 1 == locatewalls.get(lo).getRow()) {
+                    map.remove(right);
+                }
+                if (row+1 == lo.getRow() && row-1 == locatewalls.get(lo).getRow()) {
+                    map.remove(right);
+                }
+                if (row == lo.getRow() && row+2 == locatewalls.get(lo).getRow()){
+                    map.remove(right);
+                }
+                if (row+2 == lo.getRow() && row == locatewalls.get(lo).getRow()){
+                    map.remove(right);
+                }
+            }
+            if (row == lo.getRow()){
+                if (col-1 == lo.getCol() && col+1 == locatewalls.get(lo).getCol()){
+                    map.remove(up);
+                }
+                if (col+1 == lo.getCol() && col-1 == locatewalls.get(lo).getCol()){
+                    map.remove(up);
+                }
+                if (col == lo.getCol() && col+2 == locatewalls.get(lo).getCol()){
+                    map.remove(up);
+                }
+                if (col+2 == lo.getCol() && col == locatewalls.get(lo).getCol()){
+                    map.remove(up);
+                }
+            }
+            if (row+1 == lo.getRow()){
+                if (col-1 == lo.getCol() && col+1 == locatewalls.get(lo).getCol()){
+                    map.remove(down);
+                }
+                if (col+1 == lo.getCol() && col-1 == locatewalls.get(lo).getCol()){
+                    map.remove(down);
+                }
+                if (col == lo.getCol() && col+2 == locatewalls.get(lo).getCol()){
+                    map.remove(down);
+                }
+                if (col+2 == lo.getCol() && col == locatewalls.get(lo).getCol()){
+                    map.remove(down);
+                }
+            }
+        }
+        for (Integer ids: locations.keySet()){
+            if (map.containsKey(locations.get(ids))){
+                map.remove(locations.get(ids));
+                for (Coordinate newlo: locatewalls.keySet()) {
+                    if (locations.get(ids) == right) {
+                        int newrow = right.getRow();
+                        int newcol = right.getCol();
+                        if (newrow-1 == newlo.getRow() && newrow + 1 == locatewalls.get(newlo).getRow()) {
+                            if (map.containsKey(up)) {
+                                Coordinate adj = new Coordinate(newrow - 1, newcol);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newrow+1 == newlo.getRow() && newrow-1 == locatewalls.get(newlo).getRow()) {
+                            if (map.containsKey(up)) {
+                                Coordinate adj = new Coordinate(newrow - 1, newcol);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newrow == newlo.getRow() && newrow+2 == locatewalls.get(newlo).getRow()){
+                            if (map.containsKey(down)) {
+                                Coordinate adj = new Coordinate(newrow + 1, newcol);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newrow+2 == newlo.getRow() && newrow == locatewalls.get(newlo).getRow()) {
+                            if (map.containsKey(down)) {
+                                Coordinate adj = new Coordinate(newrow + 1, newcol);
+                                map.put(adj, 1);
+                            }
+                        }
+                        else {
+                            Coordinate jump = new Coordinate(newrow,newcol+1);
+                            map.put(jump,1);
+                        }
+                    }
+                    if (locations.get(ids) == left) {
+                        int newrow = left.getRow();
+                        int newcol = left.getCol();
+                        if (newrow - 1 == newlo.getRow() && newrow + 1 == locatewalls.get(newlo).getRow()) {
+                            if (map.containsKey(up)) {
+                                Coordinate adj = new Coordinate(newrow - 1, newcol);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newrow + 1 == newlo.getRow() && newrow - 1 == locatewalls.get(newlo).getRow()) {
+                            if (map.containsKey(up)) {
+                                Coordinate adj = new Coordinate(newrow - 1, newcol);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newrow == newlo.getRow() && newrow + 2 == locatewalls.get(newlo).getRow()) {
+                            if (map.containsKey(down)) {
+                                Coordinate adj = new Coordinate(newrow + 1, newcol);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newrow + 2 == newlo.getRow() && newrow == locatewalls.get(newlo).getRow()) {
+                            if (map.containsKey(down)) {
+                                Coordinate adj = new Coordinate(newrow + 1, newcol);
+                                map.put(adj, 1);
+                            }
+                        }
+                        else {
+                            Coordinate jump = new Coordinate(newrow,newcol-1);
+                            map.put(jump,1);
+                        }
+                    }
+                    if (locations.get(ids) == up) {
+                        int newrow = up.getRow();
+                        int newcol = up.getCol();
+                        if (newcol-1 == newlo.getCol() && newcol + 1 == locatewalls.get(newlo).getCol()) {
+                            if (map.containsKey(left)) {
+                                Coordinate adj = new Coordinate(newrow, newcol-1);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newcol+1 == newlo.getCol() && newcol-1 == locatewalls.get(newlo).getCol()) {
+                            if (map.containsKey(left)) {
+                                Coordinate adj = new Coordinate(newrow, newcol-1);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newcol == newlo.getCol() && newcol+2 == locatewalls.get(newlo).getCol()){
+                            if (map.containsKey(right)) {
+                                Coordinate adj = new Coordinate(newrow, newcol+1);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newcol+2 == newlo.getCol() && newcol == locatewalls.get(newlo).getCol()) {
+                            if (map.containsKey(right)) {
+                                Coordinate adj = new Coordinate(newrow, newcol+1);
+                                map.put(adj, 1);
+                            }
+                        }
+                        else{
+                            Coordinate jump = new Coordinate(newrow-1,newcol);
+                            map.put(jump,1);
+                        }
+                    }
+                    if (locations.get(ids) == down) {
+                        int newrow = down.getRow();
+                        int newcol = down.getCol();
+                        if (newcol-1 == newlo.getCol() && newcol + 1 == locatewalls.get(newlo).getCol()) {
+                            if (map.containsKey(left)) {
+                                Coordinate adj = new Coordinate(newrow, newcol-1);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newcol+1 == newlo.getCol() && newcol-1 == locatewalls.get(newlo).getCol()) {
+                            if (map.containsKey(left)) {
+                                Coordinate adj = new Coordinate(newrow, newcol-1);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newcol == newlo.getRow() && newcol+2 == locatewalls.get(newlo).getCol()){
+                            if (map.containsKey(right)) {
+                                Coordinate adj = new Coordinate(newrow, newcol+1);
+                                map.put(adj, 1);
+                            }
+                        }
+                        if (newcol+2 == newlo.getRow() && newcol == locatewalls.get(newlo).getCol()){
+                            if (map.containsKey(right)) {
+                                Coordinate adj = new Coordinate(newrow, newcol + 1);
+                                map.put(adj, 1);
+                            }
+                        }
+                        else {
+                            Coordinate jump = new Coordinate(newrow+1,newcol);
+                            map.put(jump,1);
+                        }
+                    }
+                }
+            }
+        }
+        for (Coordinate move: map.keySet()){
+            if (move.getCol()>8 || move.getRow()>8){
+                outofbound.add(move);
+            }
+        }
+        for (Coordinate extra :outofbound){
+            map.remove(extra);
+        }
+        for (Coordinate demmoves: map.keySet()) {
+            PlayerMove allmoves = new PlayerMove(playerID, true, getPlayerLocation(playerID), demmoves);
+            allmove.add(allmoves);
+        }
+        return allmove;
+    }
 }
+
+
