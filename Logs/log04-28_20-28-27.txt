@@ -1,0 +1,4 @@
+04-28 20:28:27 Engine Quoridor Java Client v1.0.9 by RIT CS Department starting up
+04-28 20:28:27 Engine Loading player Pz_Hw
+04-28 20:28:27 Engine Loading player RandomPlayer
+04-28 20:28:27 Engine Loaded 2 players

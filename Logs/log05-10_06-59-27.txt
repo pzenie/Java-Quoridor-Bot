@@ -1,0 +1,34 @@
+05-10 06:59:27 Engine Quoridor Java Client v1.0.11 by RIT CS Department starting up
+05-10 06:59:27 Engine Loading player Pz_Hw
+05-10 06:59:27 Engine Loading player BeatMePlayer
+05-10 06:59:27 Engine Loaded 2 players
+05-10 06:59:28 Engine Calling init() for player 1
+05-10 06:59:28 Engine Calling init() for player 2
+05-10 06:59:28 Model  GUI accessible at:
+https://games.cs.rit.edu/quoridorapi/gameview/animations.1/public.b985b1d9fcf207e5a87cfadf4056ac7c5faf0b0b554f3a1d63fd9/gameid.84336/partone.0
+05-10 06:59:28 Engine Checking all possible moves for player 1
+05-10 06:59:28 Engine All possible valid piece moves verified.
+05-10 06:59:28 Engine All possible valid wall moves verified.
+05-10 06:59:28 Engine Processing move #1
+05-10 06:59:28 Engine Getting move from player 1
+05-10 06:59:28 Engine Validating move: PlayerMove [Piece: start=[8, 4], end=[7, 4], playerId=1]
+05-10 06:59:28 Engine Move validated. Notifying other players
+05-10 06:59:28 Engine Notifying player 1 of last move
+05-10 06:59:28 Engine Notifying player 2 of last move
+05-10 06:59:29 Engine Finished processing player 1's move
+05-10 06:59:29 Engine Checking all possible moves for player 1
+05-10 06:59:29 Engine All possible valid piece moves verified.
+05-10 06:59:29 Engine All possible valid wall moves verified.
+05-10 06:59:29 Engine Processing move #2
+05-10 06:59:29 Engine Getting move from player 2
+05-10 06:59:29 Engine Validating move: PlayerMove [Piece: start=[0, 4], end=[1, 4], playerId=2]
+05-10 06:59:29 Engine Move validated. Notifying other players
+05-10 06:59:29 Engine Notifying player 1 of last move
+05-10 06:59:29 Engine Notifying player 2 of last move
+05-10 06:59:29 Engine Finished processing player 2's move
+05-10 06:59:29 Engine Checking all possible moves for player 1
+05-10 06:59:29 Engine All possible valid piece moves verified.
+05-10 06:59:29 Engine All possible valid wall moves verified.
+05-10 06:59:29 Engine Processing move #3
+05-10 06:59:29 Engine Getting move from player 1
+05-10 06:59:29 Engine Validating move: PlayerMove [Piece: start=[7, 4], end=[6, 4], playerId=1]

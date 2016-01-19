@@ -1,0 +1,9 @@
+05-07 22:20:13 Engine Quoridor Java Client v1.0.11 by RIT CS Department starting up
+05-07 22:20:13 Engine Loading player Pz_Hw
+05-07 22:20:13 Engine Error: Failed to load player Pz_Hw
+05-07 22:20:13 Engine Loading player BeatMePlayer
+05-07 22:20:13 Engine Loaded 1 player
+05-07 22:20:18 Engine Calling init() for player 1
+05-07 22:20:18 Model  Fetching paths...
+05-07 22:20:18 Model  Paths fetched.  Uploading...
+05-07 22:20:33 Engine Error: Error in main loop

@@ -1,0 +1,10 @@
+05-10 06:01:41 Engine Quoridor Java Client v1.0.11 by RIT CS Department starting up
+05-10 06:01:41 Engine Loading player Pz_Hw
+05-10 06:01:41 Engine Loading player BeatMePlayer
+05-10 06:01:41 Engine Loaded 2 players
+05-10 06:01:43 Engine Calling init() for player 1
+05-10 06:01:43 Engine Calling init() for player 2
+05-10 06:01:43 Model  GUI accessible at:
+https://games.cs.rit.edu/quoridorapi/gameview/animations.1/public.be81990a5dc7dc78fffb8788704c4b05eee5ff7b554f2c93a4ca4/gameid.84128/partone.0
+05-10 06:01:43 Engine Checking all possible moves for player 1
+05-10 06:01:43 Engine Error: Error in nextMove

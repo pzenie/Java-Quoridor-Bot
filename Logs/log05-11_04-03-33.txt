@@ -1,0 +1,198 @@
+05-11 04:03:33 Engine Quoridor Java Client v1.0.11 by RIT CS Department starting up
+05-11 04:03:33 Engine Loading player Pz_Hw
+05-11 04:03:33 Engine Loading player BeatMePlayer
+05-11 04:03:33 Engine Loaded 2 players
+05-11 04:03:34 Engine Calling init() for player 1
+05-11 04:03:34 Engine Calling init() for player 2
+05-11 04:03:35 Model  GUI accessible at:
+https://games.cs.rit.edu/quoridorapi/gameview/animations.1/public.62d04d72eed3c70e7c70b21b20d9ee399d71946a55506264d4f78/gameid.46067/partone.0
+05-11 04:03:35 Engine Processing move #1
+05-11 04:03:35 Engine Getting move from player 1
+05-11 04:03:35 Engine Validating move: PlayerMove [Piece: start=[8, 4], end=[7, 4], playerId=1]
+05-11 04:03:36 Engine Move validated. Notifying other players
+05-11 04:03:36 Engine Notifying player 1 of last move
+05-11 04:03:36 Engine Notifying player 2 of last move
+05-11 04:03:36 Engine Finished processing player 1's move
+05-11 04:03:36 Engine Processing move #2
+05-11 04:03:36 Engine Getting move from player 2
+05-11 04:03:36 Engine Validating move: PlayerMove [Wall: start=[7, 0], end=[7, 2], playerId=2]
+05-11 04:03:36 Engine Move validated. Notifying other players
+05-11 04:03:36 Engine Notifying player 1 of last move
+05-11 04:03:37 Engine Notifying player 2 of last move
+05-11 04:03:37 Engine Finished processing player 2's move
+05-11 04:03:37 Engine Processing move #3
+05-11 04:03:37 Engine Getting move from player 1
+05-11 04:03:37 Engine Validating move: PlayerMove [Piece: start=[7, 4], end=[6, 4], playerId=1]
+05-11 04:03:37 Engine Move validated. Notifying other players
+05-11 04:03:37 Engine Notifying player 1 of last move
+05-11 04:03:37 Engine Notifying player 2 of last move
+05-11 04:03:37 Engine Finished processing player 1's move
+05-11 04:03:37 Engine Processing move #4
+05-11 04:03:37 Engine Getting move from player 2
+05-11 04:03:38 Engine Validating move: PlayerMove [Wall: start=[2, 4], end=[4, 4], playerId=2]
+05-11 04:03:38 Engine Move validated. Notifying other players
+05-11 04:03:38 Engine Notifying player 1 of last move
+05-11 04:03:38 Engine Notifying player 2 of last move
+05-11 04:03:38 Engine Finished processing player 2's move
+05-11 04:03:38 Engine Processing move #5
+05-11 04:03:38 Engine Getting move from player 1
+05-11 04:03:39 Engine Validating move: PlayerMove [Piece: start=[6, 4], end=[5, 4], playerId=1]
+05-11 04:03:40 Engine Move validated. Notifying other players
+05-11 04:03:40 Engine Notifying player 1 of last move
+05-11 04:03:40 Engine Notifying player 2 of last move
+05-11 04:03:40 Engine Finished processing player 1's move
+05-11 04:03:40 Engine Processing move #6
+05-11 04:03:40 Engine Getting move from player 2
+05-11 04:03:40 Engine Validating move: PlayerMove [Wall: start=[6, 3], end=[6, 5], playerId=2]
+05-11 04:03:41 Engine Move validated. Notifying other players
+05-11 04:03:41 Engine Notifying player 1 of last move
+05-11 04:03:41 Engine Notifying player 2 of last move
+05-11 04:03:41 Engine Finished processing player 2's move
+05-11 04:03:41 Engine Processing move #7
+05-11 04:03:41 Engine Getting move from player 1
+05-11 04:03:41 Engine Validating move: PlayerMove [Piece: start=[5, 4], end=[4, 4], playerId=1]
+05-11 04:03:41 Engine Move validated. Notifying other players
+05-11 04:03:41 Engine Notifying player 1 of last move
+05-11 04:03:41 Engine Notifying player 2 of last move
+05-11 04:03:42 Engine Finished processing player 1's move
+05-11 04:03:42 Engine Processing move #8
+05-11 04:03:42 Engine Getting move from player 2
+05-11 04:03:42 Engine Validating move: PlayerMove [Wall: start=[4, 3], end=[4, 5], playerId=2]
+05-11 04:03:42 Engine Move validated. Notifying other players
+05-11 04:03:42 Engine Notifying player 1 of last move
+05-11 04:03:42 Engine Notifying player 2 of last move
+05-11 04:03:42 Engine Finished processing player 2's move
+05-11 04:03:42 Engine Processing move #9
+05-11 04:03:42 Engine Getting move from player 1
+05-11 04:03:43 Engine Validating move: PlayerMove [Piece: start=[4, 4], end=[4, 5], playerId=1]
+05-11 04:03:43 Engine Move validated. Notifying other players
+05-11 04:03:43 Engine Notifying player 1 of last move
+05-11 04:03:43 Engine Notifying player 2 of last move
+05-11 04:03:43 Engine Finished processing player 1's move
+05-11 04:03:43 Engine Processing move #10
+05-11 04:03:43 Engine Getting move from player 2
+05-11 04:03:43 Engine Validating move: PlayerMove [Wall: start=[1, 5], end=[1, 7], playerId=2]
+05-11 04:03:44 Engine Move validated. Notifying other players
+05-11 04:03:44 Engine Notifying player 1 of last move
+05-11 04:03:44 Engine Notifying player 2 of last move
+05-11 04:03:44 Engine Finished processing player 2's move
+05-11 04:03:44 Engine Processing move #11
+05-11 04:03:44 Engine Getting move from player 1
+05-11 04:03:44 Engine Validating move: PlayerMove [Piece: start=[4, 5], end=[3, 5], playerId=1]
+05-11 04:03:45 Engine Move validated. Notifying other players
+05-11 04:03:45 Engine Notifying player 1 of last move
+05-11 04:03:45 Engine Notifying player 2 of last move
+05-11 04:03:45 Engine Finished processing player 1's move
+05-11 04:03:45 Engine Processing move #12
+05-11 04:03:45 Engine Getting move from player 2
+05-11 04:03:45 Engine Validating move: PlayerMove [Wall: start=[6, 2], end=[8, 2], playerId=2]
+05-11 04:03:46 Engine Move validated. Notifying other players
+05-11 04:03:46 Engine Notifying player 1 of last move
+05-11 04:03:46 Engine Notifying player 2 of last move
+05-11 04:03:46 Engine Finished processing player 2's move
+05-11 04:03:46 Engine Processing move #13
+05-11 04:03:46 Engine Getting move from player 1
+05-11 04:03:46 Engine Validating move: PlayerMove [Piece: start=[3, 5], end=[2, 5], playerId=1]
+05-11 04:03:47 Engine Move validated. Notifying other players
+05-11 04:03:47 Engine Notifying player 1 of last move
+05-11 04:03:47 Engine Notifying player 2 of last move
+05-11 04:03:47 Engine Finished processing player 1's move
+05-11 04:03:47 Engine Processing move #14
+05-11 04:03:47 Engine Getting move from player 2
+05-11 04:03:47 Engine Validating move: PlayerMove [Wall: start=[1, 5], end=[3, 5], playerId=2]
+05-11 04:03:48 Engine Move validated. Notifying other players
+05-11 04:03:48 Engine Notifying player 1 of last move
+05-11 04:03:48 Engine Notifying player 2 of last move
+05-11 04:03:48 Engine Finished processing player 2's move
+05-11 04:03:48 Engine Processing move #15
+05-11 04:03:48 Engine Getting move from player 1
+05-11 04:03:48 Engine Validating move: PlayerMove [Piece: start=[2, 5], end=[1, 5], playerId=1]
+05-11 04:03:49 Engine Move validated. Notifying other players
+05-11 04:03:49 Engine Notifying player 1 of last move
+05-11 04:03:49 Engine Notifying player 2 of last move
+05-11 04:03:49 Engine Finished processing player 1's move
+05-11 04:03:49 Engine Processing move #16
+05-11 04:03:49 Engine Getting move from player 2
+05-11 04:03:49 Engine Validating move: PlayerMove [Wall: start=[1, 6], end=[3, 6], playerId=2]
+05-11 04:03:50 Engine Move validated. Notifying other players
+05-11 04:03:50 Engine Notifying player 1 of last move
+05-11 04:03:50 Engine Notifying player 2 of last move
+05-11 04:03:50 Engine Finished processing player 2's move
+05-11 04:03:50 Engine Processing move #17
+05-11 04:03:50 Engine Getting move from player 1
+05-11 04:03:51 Engine Validating move: PlayerMove [Piece: start=[1, 5], end=[2, 5], playerId=1]
+05-11 04:03:51 Engine Move validated. Notifying other players
+05-11 04:03:51 Engine Notifying player 1 of last move
+05-11 04:03:51 Engine Notifying player 2 of last move
+05-11 04:03:52 Engine Finished processing player 1's move
+05-11 04:03:52 Engine Processing move #18
+05-11 04:03:52 Engine Getting move from player 2
+05-11 04:03:52 Engine Validating move: PlayerMove [Wall: start=[0, 1], end=[2, 1], playerId=2]
+05-11 04:03:52 Engine Move validated. Notifying other players
+05-11 04:03:52 Engine Notifying player 1 of last move
+05-11 04:03:52 Engine Notifying player 2 of last move
+05-11 04:03:52 Engine Finished processing player 2's move
+05-11 04:03:52 Engine Processing move #19
+05-11 04:03:52 Engine Getting move from player 1
+05-11 04:03:52 Engine Validating move: PlayerMove [Piece: start=[2, 5], end=[3, 5], playerId=1]
+05-11 04:03:53 Engine Move validated. Notifying other players
+05-11 04:03:53 Engine Notifying player 1 of last move
+05-11 04:03:53 Engine Notifying player 2 of last move
+05-11 04:03:54 Engine Finished processing player 1's move
+05-11 04:03:54 Engine Processing move #20
+05-11 04:03:54 Engine Getting move from player 2
+05-11 04:03:54 Engine Validating move: PlayerMove [Wall: start=[4, 3], end=[6, 3], playerId=2]
+05-11 04:03:54 Engine Move validated. Notifying other players
+05-11 04:03:54 Engine Notifying player 1 of last move
+05-11 04:03:54 Engine Notifying player 2 of last move
+05-11 04:03:54 Engine Finished processing player 2's move
+05-11 04:03:54 Engine Processing move #21
+05-11 04:03:54 Engine Getting move from player 1
+05-11 04:03:55 Engine Validating move: PlayerMove [Piece: start=[3, 5], end=[3, 4], playerId=1]
+05-11 04:03:55 Engine Move validated. Notifying other players
+05-11 04:03:55 Engine Notifying player 1 of last move
+05-11 04:03:55 Engine Notifying player 2 of last move
+05-11 04:03:55 Engine Finished processing player 1's move
+05-11 04:03:55 Engine Processing move #22
+05-11 04:03:55 Engine Getting move from player 2
+05-11 04:03:56 Engine Validating move: PlayerMove [Piece: start=[0, 4], end=[1, 4], playerId=2]
+05-11 04:03:56 Engine Move validated. Notifying other players
+05-11 04:03:56 Engine Notifying player 1 of last move
+05-11 04:03:56 Engine Notifying player 2 of last move
+05-11 04:03:57 Engine Finished processing player 2's move
+05-11 04:03:57 Engine Processing move #23
+05-11 04:03:57 Engine Getting move from player 1
+05-11 04:03:57 Engine Validating move: PlayerMove [Piece: start=[3, 4], end=[2, 4], playerId=1]
+05-11 04:03:57 Engine Move validated. Notifying other players
+05-11 04:03:57 Engine Notifying player 1 of last move
+05-11 04:03:58 Engine Notifying player 2 of last move
+05-11 04:03:58 Engine Finished processing player 1's move
+05-11 04:03:58 Engine Processing move #24
+05-11 04:03:58 Engine Getting move from player 2
+05-11 04:03:58 Engine Validating move: PlayerMove [Piece: start=[1, 4], end=[3, 4], playerId=2]
+05-11 04:03:59 Engine Move validated. Notifying other players
+05-11 04:03:59 Engine Notifying player 1 of last move
+05-11 04:03:59 Engine Notifying player 2 of last move
+05-11 04:03:59 Engine Finished processing player 2's move
+05-11 04:03:59 Engine Processing move #25
+05-11 04:03:59 Engine Getting move from player 1
+05-11 04:03:59 Engine Validating move: PlayerMove [Piece: start=[2, 4], end=[1, 4], playerId=1]
+05-11 04:04:00 Engine Move validated. Notifying other players
+05-11 04:04:00 Engine Notifying player 1 of last move
+05-11 04:04:00 Engine Notifying player 2 of last move
+05-11 04:04:00 Engine Finished processing player 1's move
+05-11 04:04:00 Engine Processing move #26
+05-11 04:04:00 Engine Getting move from player 2
+05-11 04:04:00 Engine Validating move: PlayerMove [Piece: start=[3, 4], end=[3, 5], playerId=2]
+05-11 04:04:01 Engine Move validated. Notifying other players
+05-11 04:04:01 Engine Notifying player 1 of last move
+05-11 04:04:01 Engine Notifying player 2 of last move
+05-11 04:04:01 Engine Finished processing player 2's move
+05-11 04:04:01 Engine Processing move #27
+05-11 04:04:01 Engine Getting move from player 1
+05-11 04:04:01 Engine Validating move: PlayerMove [Piece: start=[1, 4], end=[0, 4], playerId=1]
+05-11 04:04:02 Engine Move validated. Notifying other players
+05-11 04:04:02 Engine Notifying player 1 of last move
+05-11 04:04:02 Engine Notifying player 2 of last move
+05-11 04:04:02 Engine Finished processing player 1's move
+05-11 04:04:02 Engine Game has ended

@@ -1,0 +1,29 @@
+commit 071e9efbb33a8a26a058d72f42971071652adb11
+Author: pxz5572 <pxz5572@cs.rit.edu>
+Date:   Mon May 11 06:30:09 2015 -0400
+
+    finished part3
+
+commit b24f9fa19c18fc305d7f5218e35100968d33a06f
+Author: pxz5572 <pxz5572@cs.rit.edu>
+Date:   Sat May 9 06:25:25 2015 -0400
+
+    part 3 first
+
+commit b3bc13ed030ea4a91409fc2df7cb9278da8a0627
+Author: pxz5572 <pxz5572@cs.rit.edu>
+Date:   Tue Apr 28 23:24:19 2015 -0400
+
+    final
+
+commit 5be8134a78316e25f9751dbe9d47a0e9b2008ffb
+Author: pxz5572 <pxz5572@cs.rit.edu>
+Date:   Tue Apr 28 01:11:25 2015 -0400
+
+    fix1
+
+commit 221048f9619e531f7e0c1b9b807d25e451cfea07
+Author: pxz5572 <pxz5572@cs.rit.edu>
+Date:   Tue Apr 28 00:22:06 2015 -0400
+
+    initial

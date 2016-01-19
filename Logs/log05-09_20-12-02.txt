@@ -1,0 +1,69 @@
+05-09 20:12:02 Engine Quoridor Java Client v1.0.11 by RIT CS Department starting up
+05-09 20:12:02 Engine Loading player Pz_Hw
+05-09 20:12:02 Engine Loading player BeatMePlayer
+05-09 20:12:02 Engine Loaded 2 players
+05-09 20:12:12 Engine Calling init() for player 1
+05-09 20:12:12 Engine Calling init() for player 2
+05-09 20:12:13 Model  GUI accessible at:
+https://games.cs.rit.edu/quoridorapi/gameview/animations.500/public.05a1796f4ae4a35748194d660f46c8c31442f537554ea2690594b/gameid.78431/partone.0
+05-09 20:12:13 Engine Checking all possible moves for player 1
+05-09 20:12:13 Engine All possible valid piece moves verified.
+05-09 20:12:13 Engine All possible valid wall moves verified.
+05-09 20:12:13 Engine Processing move #1
+05-09 20:12:13 Engine Getting move from player 1
+05-09 20:12:13 Engine Error: Error in getMove
+05-09 20:12:23 Engine Error: Player 1 timed out or returned no move.
+05-09 20:12:23 Engine Invalidating player 1
+05-09 20:12:25 Engine Notifying player 2 that player 1 was invalidated
+05-09 20:12:25 Engine Finished processing player 1's move
+05-09 20:12:25 Engine Processing move #1
+05-09 20:12:25 Engine Getting move from player 2
+05-09 20:12:25 Engine Validating move: PlayerMove [Piece: start=[0, 4], end=[1, 4], playerId=2]
+05-09 20:12:28 Engine Move validated. Notifying other players
+05-09 20:12:28 Engine Notifying player 2 of last move
+05-09 20:12:28 Engine Finished processing player 2's move
+05-09 20:12:28 Engine Processing move #2
+05-09 20:12:28 Engine Getting move from player 2
+05-09 20:12:28 Engine Validating move: PlayerMove [Wall: start=[2, 6], end=[4, 6], playerId=2]
+05-09 20:12:33 Engine Move validated. Notifying other players
+05-09 20:12:33 Engine Notifying player 2 of last move
+05-09 20:12:33 Engine Finished processing player 2's move
+05-09 20:12:33 Engine Processing move #3
+05-09 20:12:33 Engine Getting move from player 2
+05-09 20:12:33 Engine Validating move: PlayerMove [Piece: start=[1, 4], end=[2, 4], playerId=2]
+05-09 20:12:37 Engine Move validated. Notifying other players
+05-09 20:12:37 Engine Notifying player 2 of last move
+05-09 20:12:37 Engine Finished processing player 2's move
+05-09 20:12:37 Engine Processing move #4
+05-09 20:12:37 Engine Getting move from player 2
+05-09 20:12:38 Engine Validating move: PlayerMove [Piece: start=[2, 4], end=[3, 4], playerId=2]
+05-09 20:12:40 Engine Move validated. Notifying other players
+05-09 20:12:40 Engine Notifying player 2 of last move
+05-09 20:12:40 Engine Finished processing player 2's move
+05-09 20:12:40 Engine Processing move #5
+05-09 20:12:40 Engine Getting move from player 2
+05-09 20:12:40 Engine Validating move: PlayerMove [Piece: start=[3, 4], end=[4, 4], playerId=2]
+05-09 20:12:42 Engine Move validated. Notifying other players
+05-09 20:12:42 Engine Notifying player 2 of last move
+05-09 20:12:42 Engine Finished processing player 2's move
+05-09 20:12:42 Engine Processing move #6
+05-09 20:12:42 Engine Getting move from player 2
+05-09 20:12:43 Engine Validating move: PlayerMove [Wall: start=[0, 3], end=[2, 3], playerId=2]
+05-09 20:12:45 Engine Move validated. Notifying other players
+05-09 20:12:45 Engine Notifying player 2 of last move
+05-09 20:12:45 Engine Finished processing player 2's move
+05-09 20:12:45 Engine Processing move #7
+05-09 20:12:45 Engine Getting move from player 2
+05-09 20:12:45 Engine Validating move: PlayerMove [Piece: start=[4, 4], end=[5, 4], playerId=2]
+05-09 20:12:47 Engine Move validated. Notifying other players
+05-09 20:12:47 Engine Notifying player 2 of last move
+05-09 20:12:47 Engine Finished processing player 2's move
+05-09 20:12:47 Engine Processing move #8
+05-09 20:12:47 Engine Getting move from player 2
+05-09 20:12:48 Engine Validating move: PlayerMove [Piece: start=[5, 4], end=[6, 4], playerId=2]
+05-09 20:12:50 Engine Move validated. Notifying other players
+05-09 20:12:50 Engine Notifying player 2 of last move
+05-09 20:12:50 Engine Finished processing player 2's move
+05-09 20:12:50 Engine Processing move #9
+05-09 20:12:50 Engine Getting move from player 2
+05-09 20:12:50 Engine Validating move: PlayerMove [Piece: start=[6, 4], end=[7, 4], playerId=2]

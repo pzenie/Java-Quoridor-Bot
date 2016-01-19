@@ -1,0 +1,14 @@
+04-28 21:57:36 Engine Quoridor Java Client v1.0.9 by RIT CS Department starting up
+04-28 21:57:36 Engine Loading player Pz_Hw
+04-28 21:57:36 Engine Loading player RandomPlayer
+04-28 21:57:36 Engine Loaded 2 players
+04-28 21:57:41 Engine Calling init() for player 1
+04-28 21:57:41 Engine Calling init() for player 2
+04-28 21:57:41 Model  GUI accessible at:
+https://games.cs.rit.edu/quoridorapi/gameview/animations.500/public.5916af4d37347434120ab142ca21f4c3b4b88cac55403a9bce066/gameid.26603/partone.0
+04-28 21:57:41 Engine Checking all possible moves for player 1
+04-28 21:57:41 Engine All possible valid piece moves verified.
+04-28 21:57:41 Engine All possible valid wall moves verified.
+04-28 21:57:41 Engine Processing move #1
+04-28 21:57:41 Engine Getting move from player 1
+04-28 21:57:41 Engine Validating move: PlayerMove [Wall: start=[5, 2], end=[5, 4], playerId=1]

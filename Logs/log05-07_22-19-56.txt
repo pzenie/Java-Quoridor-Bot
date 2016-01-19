@@ -1,0 +1,20 @@
+05-07 22:19:56 Engine Quoridor Java Client v1.0.11 by RIT CS Department starting up
+05-07 22:19:56 Engine Loading player Pz_Hw
+05-07 22:19:56 Engine Error: Failed to load player Pz_Hw
+05-07 22:19:56 Engine Loading player BeatMePlayer
+05-07 22:19:56 Engine Loaded 1 player
+05-07 22:20:02 Engine Calling init() for player 1
+05-07 22:20:02 Model  Fetching paths...
+05-07 22:20:02 Model  Paths fetched.  Uploading...
+05-07 22:20:17 Model  Paths uploaded.
+05-07 22:20:17 Model  Validating paths...
+05-07 22:20:17 Model  6561 out of 6561 paths are correct. Path Score: 100%
+05-07 22:20:17 Model  Validating neighbors...
+05-07 22:20:17 Model  288 valid neighbors out of 288. 0 excess neighbors. Neighbor Score: 100%
+05-07 22:20:18 Engine Player validation completed
+05-07 22:20:18 Model  GUI accessible at:
+https://games.cs.rit.edu/quoridorapi/gameview/animations.3000/public.313d643ed004d449e95593c280c84d9b280112fa554c1d5c6f4bc/gameid.56758/partone.1
+05-07 22:20:18 Engine Game has ended
+05-07 22:20:18 Engine Functionality grade for all possible moves: 
+	 Piece moves: 0.0%
+	 Wall moves: 0.0%
